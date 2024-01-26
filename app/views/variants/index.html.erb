@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Variants for <%=@product.name%></h1>
+
+<div id="variants">
+
+  <table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sku</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    <% @variants.each do |variant| %>
+        <tr id="<%= dom_id variant %>">
+           <td><%= variant.id %></td> 
+           <td><%= variant.sku %></td> 
+           <td><%= variant.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table> 
+
+</div>
+
+<%= link_to "New variant", new_product_variant_path(product: @product) %>
